@@ -1,0 +1,29 @@
+# {{ title }}
+Date of Issue: {{ date }} | Target Event: {{ event_target }}
+Prepared for: {{ target_user_role }}
+
+## Notice & Basis of Assessment
+{{ honest_framing }}
+
+## Priority Immersion Sites (Top 3 by Historical Risk)
+{% for ghat in top_ghats %}
+### {{ loop.index }}. {{ ghat.name }} ({{ ghat.water_body }})
+- Risk Score: {{ ghat.risk_score }}/100 ({{ ghat.risk_tier }}) | Confidence: {{ ghat.confidence }}
+- Findings: {{ ghat.plain_reason }}
+- Evidence Citation: {{ ghat.evidence_citation }}
+{% endfor %}
+
+## Recommended Action Priorities for Visarjan Planning
+{% for check in recommended_checks %}
+- {{ check }}
+{% endfor %}
+
+## Monitoring Data Gaps
+{% for gap in data_gaps %}
+- {{ gap }}
+{% endfor %}
+
+## Tool Scope & Limitations
+{% for lim in limitations %}
+- {{ lim }}
+{% endfor %}

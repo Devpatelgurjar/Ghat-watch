@@ -1,0 +1,30 @@
+<!-- [NOTE: needs native-speaker review / मातृभाषा समीक्षा आवश्यक] -->
+# {{ title }}
+जारी करने की तिथि: {{ date }} | लक्षित आयोजन: {{ event_target }}
+हेतु तैयार: {{ target_user_role }}
+
+## आधिकारिक सूचना एवं मूल्यांकन का आधार
+{{ honest_framing }}
+
+## प्राथमिक विसर्जन स्थल (ऐतिहासिक जोखिम के आधार पर शीर्ष 3)
+{% for ghat in top_ghats %}
+### {{ loop.index }}. {{ ghat.name }} ({{ ghat.water_body }})
+- जोखिम स्कोर: {{ ghat.risk_score }}/100 ({{ ghat.risk_tier }}) | डेटा विश्वसनीयता: {{ ghat.confidence }}
+- मुख्य निष्कर्ष: {{ ghat.plain_reason }}
+- साक्ष्य संदर्भ: {{ ghat.evidence_citation }}
+{% endfor %}
+
+## विसर्जन योजना हेतु अनुशंसित प्राथमिक जाँच एवं कदम
+{% for check in recommended_checks %}
+- {{ check }}
+{% endfor %}
+
+## निगरानी डेटा अंतराल (कमियाँ)
+{% for gap in data_gaps %}
+- {{ gap }}
+{% endfor %}
+
+## उपकरण का दायरा एवं सीमाएँ (क्या शामिल नहीं है)
+{% for lim in limitations %}
+- {{ lim }}
+{% endfor %}

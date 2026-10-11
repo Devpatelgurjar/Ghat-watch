@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@theme {
+  --color-teal-primary: #0B4F5C;
+  --color-teal-accent: #1F8A8A;
+  --color-teal-dark: #07353E;
+  --color-bg-main: #F5F8F9;
+  --color-surface: #FFFFFF;
+  --color-text-main: #12262D;
+  --color-text-muted: #5B6B73;
+  --color-border-subtle: #DCE4E7;
+
+  --color-risk-high: #B83A32;
+  --color-risk-elevated: #D98A1F;
+  --color-risk-lower: #3C8D6E;
+  --color-data-missing: #94A3A8;
+
+  --font-inter: var(--font-inter);
+  --font-devanagari: var(--font-devanagari);
+}
+
+:root {
+  --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-devanagari: 'Noto Sans Devanagari', sans-serif;
+}
+
+body {
+  background-color: #F5F8F9;
+  color: #12262D;
+  font-family: var(--font-inter);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Diagonal hatch pattern for missing data cells */
+.hatch-pattern {
+  background-color: #F1F5F9;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #E2E8F0,
+    #E2E8F0 6px,
+    #CBD5E1 6px,
+    #CBD5E1 12px
+  );
+}
+
+.hatch-pattern-strong {
+  background-color: #E2E8F0;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #94A3A8,
+    #94A3A8 4px,
+    #CBD5E1 4px,
+    #CBD5E1 8px
+  );
+}
+
+/* Print Styles for Decision Brief */
+@media print {
+  body {
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+    font-size: 12pt;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .print-page {
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  .break-inside-avoid {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  a {
+    text-decoration: none;
+    color: #000000;
+  }
+}
